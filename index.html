@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HeySchool × ClipGrow — Approved Content Style Guide</title>
+<meta name="description" content="Internal editor portal for the HeySchool × ClipGrow clipping campaign. Approved content styles, editing rules, and the style selector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================================================
+  NAV
+  Edit the nav links below if you add/remove sections.
+============================================================= -->
+<header class="site-nav" id="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand">
+      <img src="assets/images/clipgrow-mark.jpg" alt="" class="nav-mark" width="28" height="28">
+      <span>HeySchool <em>×</em> ClipGrow</span>
+    </a>
+
+    <nav class="nav-links" id="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#styles">Styles</a>
+      <a href="#rules">Rules</a>
+      <a href="#selector">Style Selector</a>
+      <a href="#diversity">Diversity</a>
+      <a href="#checklist">Checklist</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================
+    HERO
+  ============================================================= -->
+  <section class="hero" id="top">
+    <div class="hero-texture" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="hero-badge">HeySchool × ClipGrow</p>
+        <h1 class="hero-title">
+          <span class="line">Hey School</span>
+          <span class="line accent">Approved Content Styles</span>
+        </h1>
+        <p class="hero-sub">Your guide to creating diverse, high&#8209;retention content from Mary's existing content.</p>
+        <p class="hero-meta">15 approved formats &nbsp;•&nbsp; 10&#8211;20 sec videos &nbsp;•&nbsp; Built for Instagram &amp; YouTube Shorts</p>
+        <a href="#overview" class="hero-cta">
+          <span>Explore styles</span>
+          <span class="hero-cta-arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/hero-cover.png" alt="HeySchool, powered by ClipGrow — campaign cover" class="hero-photo">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    CAMPAIGN CONTEXT
+  ============================================================= -->
+  <section class="section context" id="overview">
+    <div class="section-inner">
+      <h2 class="section-title">Before you edit</h2>
+      <p class="section-lead">HeySchool × ClipGrow repurposes Mary's existing Instagram and YouTube content into short-form videos built for how people actually watch on their phones.</p>
+
+      <div class="context-grid">
+        <div class="context-block">
+          <h3>Content directions</h3>
+          <ul class="tag-list">
+            <li>Study &amp; learning</li>
+            <li>Quick motivation</li>
+            <li>Behind-the-scenes</li>
+            <li>Personal branding</li>
+            <li>Student-focused content</li>
+          </ul>
+        </div>
+        <div class="context-block">
+          <h3>Source content</h3>
+          <p>Mary's existing Instagram and YouTube library.</p>
+          <h3>Audience</h3>
+          <p>India, ages 14&#8211;25.</p>
+        </div>
+        <div class="context-block">
+          <h3>Platforms</h3>
+          <p>Instagram &amp; YouTube Shorts.</p>
+          <h3>The job</h3>
+          <p>Take source footage and transform it using one of the approved styles below &mdash; never edit without picking a style first.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    STYLE LIBRARY
+  ============================================================= -->
+  <section class="section library" id="styles">
+    <div class="section-inner">
+      <h2 class="section-title">The style library</h2>
+      <p class="section-lead">15 approved formats. Pick one that fits your footage &mdash; not the other way around.</p>
+
+      <div class="library-controls">
+        <div class="filter-row" id="filter-row" role="group" aria-label="Filter styles">
+          <button class="filter-chip is-active" data-filter="ALL">All</button>
+          <button class="filter-chip" data-filter="EMOTIONAL">Emotional</button>
+          <button class="filter-chip" data-filter="MOTIVATIONAL">Motivational</button>
+          <button class="filter-chip" data-filter="CINEMATIC">Cinematic</button>
+          <button class="filter-chip" data-filter="STORY">Story</button>
+          <button class="filter-chip" data-filter="RELATABLE">Relatable</button>
+          <button class="filter-chip" data-filter="HIGH ENERGY">High energy</button>
+        </div>
+        <div class="search-row">
+          <input type="search" id="style-search" placeholder="Search styles…" aria-label="Search styles">
+        </div>
+      </div>
+
+      <div class="style-grid" id="style-grid">
+        <!-- Cards are generated from the STYLES array in script.js -->
+      </div>
+      <p class="no-results" id="no-results" hidden>No styles match that search.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    RULES
+  ============================================================= -->
+  <section class="section rules" id="rules">
+    <div class="section-inner">
+      <h2 class="section-title">The rules</h2>
+      <p class="section-lead">Nine rules. Read them once, then let them run in the background while you edit.</p>
+
+      <div class="rules-grid" id="rules-grid">
+        <!-- Generated from the RULES array in script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    STYLE SELECTOR
+  ============================================================= -->
+  <section class="section selector" id="selector">
+    <div class="section-inner">
+      <h2 class="section-title">Choose your style before you edit</h2>
+      <p class="section-lead">Decide these five things before you open your editor. If you can't fill this in, you're not ready to cut yet.</p>
+
+      <form class="selector-form" id="selector-form">
+        <div class="field">
+          <label for="sel-style">Style</label>
+          <select id="sel-style" required>
+            <option value="" disabled selected>Select an approved style…</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sel-hook">Hook</label>
+          <input type="text" id="sel-hook" placeholder="e.g. Nobody knew how close she was to quitting." required>
+        </div>
+
+        <div class="field">
+          <label for="sel-message">Core message</label>
+          <input type="text" id="sel-message" placeholder="e.g. Persistence" required>
+        </div>
+
+        <div class="field">
+          <label for="sel-visual">Visual treatment</label>
+          <select id="sel-visual" required>
+            <option value="" disabled selected>Select a treatment…</option>
+            <option>Slow cinematic</option>
+            <option>Fast-cut / high energy</option>
+            <option>Documentary / observational</option>
+            <option>Typography-led</option>
+            <option>Handheld / raw</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sel-audio">Audio</label>
+          <select id="sel-audio" required>
+            <option value="" disabled selected>Select audio…</option>
+            <option>Voiceover</option>
+            <option>Music only</option>
+            <option>Voiceover + music</option>
+            <option>Original sound</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="sel-clips">Clips</label>
+          <input type="text" id="sel-clips" placeholder="Which Mary footage will you use?" required>
+        </div>
+
+        <button type="submit" class="build-btn">Build my edit plan</button>
+      </form>
+
+      <div class="plan-card" id="plan-card" hidden>
+        <h3>Your edit plan</h3>
+        <dl id="plan-details"></dl>
+        <button class="plan-reset" id="plan-reset" type="button">Start a new plan</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    DIVERSITY TRACKER
+  ============================================================= -->
+  <section class="section diversity" id="diversity">
+    <div class="section-inner">
+      <h2 class="section-title">Keep your content diverse</h2>
+      <p class="section-lead">The goal isn't to ban repeating a style forever &mdash; it's to stop your feed from feeling like the same video five times.</p>
+
+      <div class="timeline" id="timeline">
+        <!-- Generated from the SAMPLE_SEQUENCE array in script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+    FINAL CHECKLIST
+  ============================================================= -->
+  <section class="section checklist-section" id="checklist">
+    <div class="section-inner">
+      <h2 class="section-title">Before you submit</h2>
+
+      <div class="checklist-card">
+        <div class="checklist-progress">
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <p class="progress-label" id="progress-label">0/10 complete</p>
+        </div>
+
+        <ul class="checklist" id="checklist-list">
+          <!-- Generated from the CHECKLIST array in script.js -->
+        </ul>
+
+        <p class="ready-banner" id="ready-banner" hidden>Ready to submit ✓</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <img src="assets/images/clipgrow-mark.jpg" alt="" class="nav-mark" width="24" height="24">
+      <span>HeySchool × ClipGrow</span>
+    </div>
+    <p>Internal editor reference. Not for external distribution.</p>
+  </div>
+</footer>
+
+<!-- ============================================================
+  VIDEO MODAL
+============================================================= -->
+<div class="modal" id="video-modal" aria-hidden="true">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-video">
+      <video id="modal-video-el" controls playsinline preload="none"></video>
+    </div>
+    <div class="modal-body">
+      <p class="modal-num" id="modal-num"></p>
+      <h3 id="modal-title"></h3>
+      <p class="modal-hook" id="modal-hook"></p>
+      <div class="modal-block">
+        <h4>Structure</h4>
+        <p id="modal-structure"></p>
+      </div>
+      <div class="modal-block">
+        <h4>Why it works</h4>
+        <p id="modal-why"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
