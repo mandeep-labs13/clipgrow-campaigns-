@@ -16,6 +16,7 @@ const STYLES = [
     hook: "Look where she started.",
     why: "The contrast does the work for you — keep the 'before' honest instead of softening it.",
     videoSrc: "videos/style-01.mp4",
+    posterSrc: "videos/posters/style-01.jpg",
   },
   {
     num: "02",
@@ -27,6 +28,7 @@ const STYLES = [
     hook: "Talent means nothing without consistency.",
     why: "Restraint is the format. One idea, deliberate pacing, no visual noise competing with the line.",
     videoSrc: "videos/style-02.mp4",
+    posterSrc: "videos/posters/style-02.jpg",
   },
   {
     num: "03",
@@ -38,6 +40,7 @@ const STYLES = [
     hook: "POV: you're tired, but you refuse to quit.",
     why: "It works because the viewer sees themselves, not Mary. Keep the framing second-person.",
     videoSrc: "videos/style-03.mp4",
+    posterSrc: "videos/posters/style-03.jpg",
   },
   {
     num: "04",
@@ -49,6 +52,7 @@ const STYLES = [
     hook: "\u201cDiscipline is choosing between what you want now and what you want most.\u201d",
     why: "One video, one dominant idea. Avoid filling the screen with unnecessary text around the quote.",
     videoSrc: "videos/style-04.mp4",
+    posterSrc: "videos/posters/style-04.jpg",
   },
   {
     num: "05",
@@ -60,6 +64,7 @@ const STYLES = [
     hook: "There was a version of this year where she almost stopped.",
     why: "The voiceover carries the narrative, so the footage can stay atmospheric rather than illustrative.",
     videoSrc: "videos/style-05.mp4",
+    posterSrc: "videos/posters/style-05.jpg",
   },
   {
     num: "06",
@@ -71,6 +76,7 @@ const STYLES = [
     hook: "Success looks effortless. Here's what it actually looks like.",
     why: "The cut between the two halves is the joke and the point — keep it sharp, not gradual.",
     videoSrc: "videos/style-06.mp4",
+    posterSrc: "videos/posters/style-06.jpg",
   },
   {
     num: "07",
@@ -82,6 +88,7 @@ const STYLES = [
     hook: "What does it actually take to succeed?",
     why: "The question has to be one people actually wonder about — not rhetorical filler before the 'real' video starts.",
     videoSrc: "videos/style-07.mp4",
+    posterSrc: "videos/posters/style-07.jpg",
   },
   {
     num: "08",
@@ -93,6 +100,7 @@ const STYLES = [
     hook: "She failed. She doubted herself. She kept going.",
     why: "Each line should earn its own beat — the rhythm breaks if any statement feels like filler.",
     videoSrc: "videos/style-08.mp4",
+    posterSrc: "videos/posters/style-08.jpg",
   },
   {
     num: "09",
@@ -104,6 +112,7 @@ const STYLES = [
     hook: "3 things I'd teach every girl about money before 20.",
     why: "The count in the hook sets a clear promise — keep each point short enough that the list never drags.",
     videoSrc: "videos/style-09.mp4",
+    posterSrc: "videos/posters/style-09.jpg",
   },
 ];
 
@@ -200,6 +209,7 @@ STYLES.forEach((style) => {
     <p class="style-desc">${style.desc}</p>
     <p class="style-best"><strong>Best for:</strong> ${style.best}</p>
     <div class="style-preview">
+      <img class="style-preview-img" src="${style.posterSrc}" alt="" loading="lazy" onerror="this.style.display='none'">
       <span class="style-preview-ratio">9:16</span>
       <button class="play-btn" aria-label="Watch example for ${style.name}">${playIconSVG()}</button>
     </div>
@@ -343,6 +353,7 @@ function openStyleModal(style) {
   modalStructure.textContent = style.structure;
   modalWhy.textContent = style.why;
   modalVideo.src = style.videoSrc; // replace placeholder paths in STYLES above with real files
+  modalVideo.poster = style.posterSrc; // shown while the clip loads / before play
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
