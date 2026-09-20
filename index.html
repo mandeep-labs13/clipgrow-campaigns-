@@ -34,6 +34,11 @@
       <a href="#checklist">Checklist</a>
     </nav>
 
+    <a href="#rules" class="nav-cta">
+      <span class="nav-cta-dot" aria-hidden="true"></span>
+      <span>Editing Rules</span>
+    </a>
+
     <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -161,11 +166,18 @@
   <section class="section rules" id="rules">
     <div class="section-inner">
       <h2 class="section-title">The rules</h2>
-      <p class="section-lead">Nine rules. Read them once, then let them run in the background while you edit.</p>
+      <p class="section-lead">Nine rules. Tap each card to flip it and read the full rule &mdash; flip all nine before you start editing.</p>
 
-      <div class="rules-grid" id="rules-grid">
+      <div class="rules-progress">
+        <div class="progress-track"><div class="progress-fill" id="rules-progress-fill"></div></div>
+        <p class="progress-label" id="rules-progress-label">0/9 rules read</p>
+      </div>
+
+      <div class="rules-deck" id="rules-grid">
         <!-- Generated from the RULES array in script.js -->
       </div>
+
+      <p class="ready-banner" id="rules-ready-banner" hidden>All 9 rules read — you're good to edit ✓</p>
     </div>
   </section>
 
