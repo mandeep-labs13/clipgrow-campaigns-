@@ -299,6 +299,19 @@ button, input, select {
 .context-block h3 + p,
 .context-block p { color: var(--ink-muted); font-size: 0.96rem; }
 .context-block h3:not(:first-child) { margin-top: 22px; }
+.source-links {
+  display: flex;
+  gap: 16px;
+  margin: 4px 0 4px;
+}
+.source-links a {
+  color: var(--amber-bright);
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+}
+.source-links a:hover { color: var(--amber); text-decoration: underline; }
+
 .tag-list li {
   color: var(--ink-muted);
   font-size: 0.96rem;
@@ -306,6 +319,47 @@ button, input, select {
   border-bottom: 1px solid var(--line);
 }
 .tag-list li:first-child { padding-top: 0; }
+
+.payout-callout {
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(232,135,61,0.1), rgba(232,135,61,0.03));
+  border: 1px solid rgba(232, 135, 61, 0.35);
+  border-radius: var(--radius-m);
+  padding: 26px 30px;
+}
+.payout-label {
+  font-size: 0.86rem;
+  color: var(--amber-bright);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.payout-figures {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.payout-figure { min-width: 160px; }
+.payout-value {
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.payout-unit {
+  margin-top: 4px;
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+}
+.payout-divider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--line-strong);
+}
+@media (max-width: 600px) {
+  .payout-divider { display: none; }
+}
 
 /* ==========================================================
    LIBRARY CONTROLS
@@ -432,7 +486,10 @@ button, input, select {
 .style-preview {
   margin-top: 4px;
   position: relative;
-  aspect-ratio: 9 / 12;
+  width: 46%;
+  min-width: 110px;
+  max-width: 140px;
+  aspect-ratio: 9 / 16;
   border-radius: var(--radius-s);
   background: linear-gradient(160deg, var(--raised), #1a1310);
   border: 1px solid var(--line);
@@ -459,8 +516,8 @@ button, input, select {
 .play-btn {
   position: relative;
   z-index: 1;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
   background: rgba(9,9,9,0.6);
