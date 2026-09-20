@@ -94,6 +94,17 @@ const STYLES = [
     why: "Each line should earn its own beat — the rhythm breaks if any statement feels like filler.",
     videoSrc: "videos/style-08.mp4",
   },
+  {
+    num: "09",
+    name: "Tips & Advice",
+    tags: ["STORY", "RELATABLE"],
+    desc: "Deliver a numbered list of quick tips or lessons straight to camera, with each point reinforced by on-screen text.",
+    best: "Advice-style footage where Mary is speaking directly to the camera, especially study or life-lesson content.",
+    structure: "Hook (list count) → Point 1 → Point 2 → Point 3 → Close",
+    hook: "3 things I'd teach every girl about money before 20.",
+    why: "The count in the hook sets a clear promise — keep each point short enough that the list never drags.",
+    videoSrc: "videos/style-09.mp4",
+  },
 ];
 
 const RULES = [
