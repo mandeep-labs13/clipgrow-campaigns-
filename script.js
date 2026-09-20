@@ -119,46 +119,64 @@ const STYLES = [
 const RULES = [
   {
     num: "01",
+    icon: "🔁",
+    tagline: "Don't repeat yourself",
     title: "No repetitive formats",
     body: "Don't repeatedly use the same content style. If your previous video used one format, choose a substantially different format next, whenever possible. Changing the music or swapping clips doesn't count as a different style.",
   },
   {
     num: "02",
+    icon: "🎯",
+    tagline: "Every video needs its own angle",
     title: "Every video needs a distinct angle",
     body: "The story, hook, message, pacing or narrative treatment must feel different. Don't create multiple versions of the same idea.",
   },
   {
     num: "03",
+    icon: "🎭",
+    tagline: "Not everything is a pep talk",
     title: "Don't force motivation on everything",
     body: "Not every clip needs to become a generic motivational edit. Use relatable, cinematic, story-driven or high-energy formats depending on the footage.",
   },
   {
     num: "04",
+    icon: "⏱️",
+    tagline: "Short. Sharp. Done.",
     title: "Video length: 10–20 seconds",
     body: "Keep submitted videos between 10 and 20 seconds. Avoid unnecessarily long edits — the content should communicate its idea quickly.",
   },
   {
     num: "05",
+    icon: "💡",
+    tagline: "One idea per video",
     title: "One core message",
     body: "One video should communicate one main idea. Don't cram multiple unrelated lessons into a single short.",
   },
   {
     num: "06",
+    icon: "✂️",
+    tagline: "Cut the noise, not the story",
     title: "Avoid generic editing",
     body: "Avoid unnecessary random zooms, excessive shakes, flash transitions, overused effects, random overlays and unnecessary typography. Every edit should serve the story.",
   },
   {
     num: "07",
+    icon: "🧩",
+    tagline: "Let the footage choose the style",
     title: "Match the style to the footage",
     body: "A strong quote → Cinematic Quote. A relatable everyday moment → POV / Relatable. A clear before-and-after → Before → After. Don't force footage into a format that doesn't fit.",
   },
   {
     num: "08",
+    icon: "🎣",
+    tagline: "Never recycle the opener",
     title: "Hooks must be different",
     body: "Even when reusing an approved style, avoid recycling the same opening line. The first seconds should give the viewer a new reason to keep watching.",
   },
   {
-    num: "10",
+    num: "09",
+    icon: "🧠",
+    tagline: "Make sure they get it",
     title: "The viewer must understand the point",
     body: "After watching, the viewer should be able to answer: \u201cWhat was this video trying to say?\u201d If the answer is unclear, the edit needs improvement.",
   },
@@ -224,19 +242,58 @@ STYLES.forEach((style) => {
 });
 
 // =============================================================
-// RENDER: RULES
+// RENDER: RULES (flip cards + read-progress tracker)
 // =============================================================
 const rulesGrid = document.getElementById("rules-grid");
-RULES.forEach((rule) => {
-  const el = document.createElement("div");
-  el.className = "rule-card";
-  el.innerHTML = `
-    <div class="rule-num">${rule.num}</div>
-    <h3 class="rule-title">${rule.title}</h3>
-    <p class="rule-body">${rule.body}</p>
+const rulesProgressFill = document.getElementById("rules-progress-fill");
+const rulesProgressLabel = document.getElementById("rules-progress-label");
+const rulesReadyBanner = document.getElementById("rules-ready-banner");
+const readRules = new Set();
+
+function updateRulesProgress() {
+  const total = RULES.length;
+  const read = readRules.size;
+  rulesProgressFill.style.width = `${(read / total) * 100}%`;
+  rulesProgressLabel.textContent = `${read}/${total} rules read`;
+  rulesReadyBanner.hidden = read !== total;
+}
+
+RULES.forEach((rule, i) => {
+  const card = document.createElement("button");
+  card.type = "button";
+  card.className = "rule-card";
+  card.setAttribute("aria-expanded", "false");
+  card.innerHTML = `
+    <span class="rule-read-badge" aria-hidden="true">✓ Read</span>
+    <div class="rule-card-inner">
+      <div class="rule-card-face rule-card-front">
+        <span class="rule-icon" aria-hidden="true">${rule.icon}</span>
+        <span class="rule-num">${rule.num}</span>
+        <h3 class="rule-tagline">${rule.tagline}</h3>
+        <span class="rule-tap-hint">Tap to read <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+      <div class="rule-card-face rule-card-back">
+        <span class="rule-num-small">Rule ${rule.num}</span>
+        <h3 class="rule-title">${rule.title}</h3>
+        <p class="rule-body">${rule.body}</p>
+      </div>
+    </div>
   `;
-  rulesGrid.appendChild(el);
+
+  card.addEventListener("click", () => {
+    const flipped = card.classList.toggle("is-flipped");
+    card.setAttribute("aria-expanded", String(flipped));
+    if (flipped && !readRules.has(i)) {
+      readRules.add(i);
+      card.classList.add("is-read");
+      updateRulesProgress();
+    }
+  });
+
+  rulesGrid.appendChild(card);
 });
+
+updateRulesProgress();
 
 // =============================================================
 // RENDER: SELECTOR OPTIONS
